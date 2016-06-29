@@ -1,14 +1,14 @@
 
 $(document).ready(function(){
   var container = $('.container');
-  var numOfRows = 10;
-  var numOfCols = 10;
+  var numOfRows = document.getElementById("userWidth").value;
+  var numOfCols = document.getElementById("userHeight").value;
 
   initGrid();
-  addClickHandlers();
+  // addClickHandlers();
 
   // easier way to do it
-  // addClickHandlersV2();
+   addClickHandlersV2();
 
 function addClickHandlersV2(){
   var cells = $('.cell');
