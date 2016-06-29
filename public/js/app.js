@@ -6,14 +6,28 @@ $(document).ready(function(){
 
   initGrid();
   addClickHandlers();
+
+  // easier way to do it
+  // addClickHandlersV2();
+
+function addClickHandlersV2(){
+  var cells = $('.cell');
+  cells.on('click', changeColor);
+}
+
   function changeColor(){
-    console.log('change!!');
+    var colorClasses = ['white','red','green','blue'];
+    var colorCycle = Math.round(Math.random() * (colorClasses.length));
+    var color = colorClasses[colorCycle];
+    $(this).removeClass(colorClasses.join(' '));
+    $(this).addClass(color);
+
   }
   function addClickHandlers(){
     var cells = $('.cell');
     for(var i = 0; i < cells.length; i += 1){
       var cell = cells[i];
-      $(cell).on('click', changeColor);
+      $(cell).on('mouseenter', changeColor);
     }
   }
   function initGrid(){
